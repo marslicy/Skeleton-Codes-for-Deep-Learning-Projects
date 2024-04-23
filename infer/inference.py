@@ -21,6 +21,7 @@ class Inference:
     def __call__(self, x):
         # TODO: add prepcossing and postprocessing
         x = x.to(self.device)
-        out = self.model(x)
+        with torch.no_grad():
+            out = self.model(x)
 
         return out
