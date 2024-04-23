@@ -5,7 +5,8 @@ import torch
 
 class Inference:
     def __init__(self, model_cls, log_path, device="cuda"):
-        self.model = self.load_model(model_cls, Path(log_path))
+        log_path = Path(log_path)
+        self.model = self.load_model(model_cls, log_path)
         self.device = device
 
     def load_model(self, model_cls, log_path):
